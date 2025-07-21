@@ -341,7 +341,7 @@ class ConvBlock(nn.Module):
 
 
 class VideoMaskTracker:
-    def __init__(self, sam_model='large', SAM_DIR="/nfshomes/yclee/disk/projects/sam2"):
+    def __init__(self, sam_model='large', SAM_DIR="/home/ubuntu/jin-Vol/code/gen-omnimatte-public/sam2_repo"):
         ckpt, cfg = {
             'tiny': ('sam2.1_hiera_tiny.pt', 'configs/sam2.1/sam2.1_hiera_t.yaml'),
             'small': ('sam2.1_hiera_small.pt', 'configs/sam2.1/sam2.1_hiera_s.yaml'),

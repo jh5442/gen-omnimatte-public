@@ -29,6 +29,5 @@ mediapy
 tqdm
 matplotlib
 ml_collections
-absl
 scipy
 kornia

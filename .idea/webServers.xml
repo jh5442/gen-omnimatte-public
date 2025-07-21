@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="64c5d383-9baa-43a8-a43e-9e7b4225a018" name="cc-sea1-jin">
+        <fileTransfer rootFolder="/home/ubuntu" accessType="SFTP" host="cc-sea1-jin" port="6801" sshConfigId="c0950e4c-b32f-465e-ac27-93c66b76e529" sshConfig="ubuntu@cc-sea1-jin:6801 agent" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="fbc9ca8b-7a3b-4681-8ca9-3a2f8e5b1e70" name="temp-server">
+        <fileTransfer rootFolder="/home/ubuntu" accessType="SFTP" host="192.222.53.58" port="22" sshConfigId="c0cc139b-1204-48d7-9305-f5f955e90831" sshConfig="ubuntu@192.222.53.58:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

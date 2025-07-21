@@ -90,6 +90,12 @@ def save_videos_grid(videos: torch.Tensor, path: str, rescale=False, n_rows=6, f
 
 
 def save_inout_row(input_video, input_mask, output_video, video_path, fps=16, visualize_masked_video=False, visualize_error=True):
+    print("@" * 10)
+    print(input_video.shape)
+    print(input_mask.shape)
+    print(output_video.shape)
+    print("@" * 10)
+
     input_video = rearrange(input_video[0], "c t h w -> t h w c")
     input_mask = rearrange(input_mask[0], "c t h w -> t h w c")
     input_mask = repeat(input_mask, "t h w c -> t h w (repeat c)", repeat=3)
@@ -108,6 +114,7 @@ def save_inout_row(input_video, input_mask, output_video, video_path, fps=16, vi
     if visualize_error:
         err = torch.abs(input_video - output_video).mean(-1).cpu().numpy()
         vis_err = apply_colormap(err)
+        print(vis_err.shape)
         row += [vis_err]
 
     row = np.concatenate(row, 2)

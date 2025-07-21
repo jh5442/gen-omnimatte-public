@@ -32,8 +32,8 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-TMP_DIR = "./.tmp"
-SEQ_NAME = "gradio_demo"
+TMP_DIR = "/home/ubuntu/jin-Vol/results/demos_for_product/gen_omnimatte/mt_lab_videos/test_06"
+SEQ_NAME = "removal"
 CONFIG = get_config()
 CONFIG.video_model.transformer_path = args.transformer_path
 MAX_LENGTH = CONFIG.data.max_video_length
@@ -68,6 +68,8 @@ def preprocess_video(video_in):
 
     logger.debug(f"Preprocessed video saved to {output_path}")
     ORIGINAL_VIDEO_LEN = i + 1
+    logger.debug(f"Total frames (in process_video): {ORIGINAL_VIDEO_LEN}")
+
     return output_path
 
 
@@ -167,6 +169,8 @@ def stack_videos(video_paths, save_path, stack_dim=1):
 
 # user click the image to get points, and show the points on the image
 def get_point(img, sel_pix, obj_id, point_type, evt: gr.SelectData):
+    obj_id = int(obj_id)
+
     while obj_id >= len(sel_pix):
         sel_pix.append([])
     if point_type == 'positive':
@@ -272,6 +276,7 @@ def segment_video(video, ref_idx, selected_points):
 
 def run_casper(sam_masks, prompt, num_sampling_steps):
     global ORIGINAL_VIDEO_LEN
+    logger.debug(f"Total frames in run_casper: {ORIGINAL_VIDEO_LEN}")
 
     pipeline, vae, generator = load_pipeline(CONFIG)
 
@@ -334,6 +339,9 @@ def run_casper(sam_masks, prompt, num_sampling_steps):
             save_path = os.path.join(save_dir, f"{SEQ_NAME}-fg={fg_id:02d}-0001.mp4")
             save_videos_grid(sample, save_path, fps=FPS)
             row_path = save_path[:-4] + "_tuple.mp4"
+
+            print(input_video.shape, mask_i.shape, sample.shape)
+
             save_inout_row(
                 input_video[:, :, :ORIGINAL_VIDEO_LEN, :, :],
                 mask_i[:, :, :ORIGINAL_VIDEO_LEN, :, :],

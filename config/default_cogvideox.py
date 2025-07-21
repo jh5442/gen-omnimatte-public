@@ -12,7 +12,7 @@ def get_config():
 
 def get_experiment_config():
     config = ml_collections.ConfigDict()
-    config.run_seqs = "boys-beach,animator-draw"
+    config.run_seqs = "gradio_demo"
     config.matting_mode = "solo"  # "clean_bg" or "solo"
     config.save_path = "casper_outputs"
     config.skip_if_exists = True
@@ -34,7 +34,7 @@ def get_data_config():
 
 def get_video_model_config():
     config = ml_collections.ConfigDict()
-    config.model_name = "models/Diffusion_Transformer/CogVideoX-Fun-V1.5-5b-InP"
+    config.model_name = "/home/ubuntu/jin-Vol/models/gen_omnimatte/CogVideoX-Fun-V1.5-5b-InP"
     config.transformer_path = ""
     config.vae_path = ""
     config.lora_path = ""

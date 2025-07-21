@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="OPEN_SSH" host="cc-sea1-jin" id="c0950e4c-b32f-465e-ac27-93c66b76e529" port="6801" nameFormat="DESCRIPTIVE" username="ubuntu" useOpenSSHConfig="true" />
+      <sshConfig host="192.222.53.58" id="c0cc139b-1204-48d7-9305-f5f955e90831" keyPath="$USER_HOME$/.ssh/id_rsa_jin" port="22" nameFormat="DESCRIPTIVE" username="ubuntu" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>
